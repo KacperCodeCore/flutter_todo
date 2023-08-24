@@ -71,12 +71,27 @@ class _HomePageState extends State<HomePage> {
     db.updateData();
   }
 
+  //edit task
+  void editTask(int index) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return DialogBox(
+          controller: _controller,
+          onSave: saveNewTask,
+          onCance: () => Navigator.of(context).pop(),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 255, 234, 171),
       appBar: AppBar(
         title: const Text('To Do List'),
+        centerTitle: true,
         elevation: 0,
       ),
       floatingActionButton: FloatingActionButton(
@@ -91,6 +106,7 @@ class _HomePageState extends State<HomePage> {
             taskCompleted: db.toDolist[index][1],
             onChanged: (value) => checkBoxChanged(value, index),
             deleteFnction: (context) => deleteTask(index),
+            editFnction: (context) => editTask(index),
           );
         },
       ),
