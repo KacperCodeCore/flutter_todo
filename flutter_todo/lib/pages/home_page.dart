@@ -71,18 +71,41 @@ class _HomePageState extends State<HomePage> {
     db.updateData();
   }
 
+  //save task
+  void saveTask(int index) {
+    setState(() {
+      db.toDolist[index][1] ? _controller : _controller.clear();
+    });
+    Navigator.of(context).pop();
+    db.updateData();
+  }
+
   //edit task
   void editTask(int index) {
     showDialog(
       context: context,
       builder: (context) {
+        _controller.text = db.toDolist[index][0];
         return DialogBox(
           controller: _controller,
-          onSave: saveNewTask,
+          onSave: () => _handleSaveEdit(index),
           onCance: () => Navigator.of(context).pop(),
         );
       },
     );
+  }
+
+  void _handleSaveEdit(int index) {
+    if (db.toDolist[index][0] == _controller.text) {
+      _controller.clear();
+      Navigator.of(context).pop();
+    } else {
+      setState(() {
+        db.toDolist[index][0] = _controller.text;
+      });
+      _controller.clear();
+      Navigator.of(context).pop();
+    }
   }
 
   @override

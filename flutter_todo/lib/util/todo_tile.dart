@@ -41,7 +41,7 @@ class ToDoTile extends StatelessWidget {
             SlidableAction(
                 onPressed: deleteFnction,
                 icon: Icons.delete,
-                backgroundColor: Colors.red.shade500,
+                backgroundColor: Color.fromARGB(255, 238, 128, 128),
                 borderRadius: BorderRadius.circular(10)),
           ],
         ),
@@ -60,12 +60,15 @@ class ToDoTile extends StatelessWidget {
                 activeColor: const Color.fromARGB(255, 61, 46, 0),
               ),
               //task name
-              Text(
-                taskName,
-                style: TextStyle(
-                    decoration: taskCompleted
-                        ? TextDecoration.lineThrough
-                        : TextDecoration.none),
+              Flexible(
+                child: Text(
+                  taskName,
+                  style: TextStyle(
+                      fontSize: 17,
+                      decoration: taskCompleted
+                          ? TextDecoration.lineThrough
+                          : TextDecoration.none),
+                ),
               ),
             ],
           ),

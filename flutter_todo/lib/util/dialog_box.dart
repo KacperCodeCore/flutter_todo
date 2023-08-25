@@ -21,13 +21,14 @@ class DialogBox extends StatelessWidget {
       ),
       backgroundColor: const Color.fromARGB(255, 255, 212, 82),
       content: SizedBox(
-        height: 120,
+        height: 200,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             //get user input
             TextField(
               controller: controller,
+              maxLines: 4,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 hintText: "Add a new task",
