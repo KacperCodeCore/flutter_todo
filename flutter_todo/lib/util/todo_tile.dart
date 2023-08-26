@@ -23,10 +23,10 @@ class ToDoTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
       child: Slidable(
+        //after slide to right show...
         startActionPane: ActionPane(
-          motion: const StretchMotion(),
+          motion: const BehindMotion(),
           children: [
-            // Akcja przy przesuwaniu w lewo
             SlidableAction(
               onPressed: editFnction,
               icon: Icons.edit,
@@ -35,8 +35,9 @@ class ToDoTile extends StatelessWidget {
             ),
           ],
         ),
+        //after slide to right show...
         endActionPane: ActionPane(
-          motion: const StretchMotion(),
+          motion: const BehindMotion(),
           children: [
             SlidableAction(
                 onPressed: deleteFnction,
@@ -45,6 +46,7 @@ class ToDoTile extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10)),
           ],
         ),
+        //task body
         child: Container(
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(

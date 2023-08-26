@@ -21,6 +21,7 @@ class DialogBox extends StatelessWidget {
       ),
       backgroundColor: const Color.fromARGB(255, 255, 212, 82),
       content: SizedBox(
+        width: 300,
         height: 200,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

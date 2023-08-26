@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_todo/pages/home_page.dart';
-import 'package:flutter_todo/theme/my_app_theme.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 void main() async {
@@ -21,10 +20,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter ToDo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.amber,
       ),
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }
