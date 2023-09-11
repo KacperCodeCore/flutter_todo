@@ -22,11 +22,13 @@ class ToDoTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
+      key: Key(context.toString()),
       padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
       child: Slidable(
         //after slide to right show...
         startActionPane: ActionPane(
           motion: const BehindMotion(),
+          dismissible: DismissiblePane(onDismissed: () => editFnction),
           children: [
             SlidableAction(
               onPressed: editFnction,
