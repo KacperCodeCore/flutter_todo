@@ -113,28 +113,32 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 255, 234, 171),
-      appBar: AppBar(
-        title: const Text('To Do List'),
-        centerTitle: true,
-        elevation: 0,
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: createNewTask,
-        child: const Icon(Icons.add),
-      ),
-      body: ListView.builder(
-        itemCount: db.toDolist.length,
-        itemBuilder: (BuildContext context, int index) {
-          return ToDoTile(
-            taskName: db.toDolist[index][0],
-            taskCompleted: db.toDolist[index][1],
-            onChanged: (value) => checkBoxChanged(value, index),
-            deleteFnction: (context) => deleteTask(index),
-            editFnction: (context) => editTask(index),
-          );
-        },
-      ),
-    );
+        backgroundColor: const Color.fromARGB(255, 255, 234, 171),
+        appBar: AppBar(
+          title: const Text('To Do List'),
+          centerTitle: true,
+          elevation: 0,
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: createNewTask,
+          child: const Icon(Icons.add),
+        ),
+        body: Column(
+          children: [
+            ListView.builder(
+              itemCount: db.toDolist.length,
+              itemBuilder: (BuildContext context, int index) {
+                return ToDoTile(
+                  taskName: db.toDolist[index][0],
+                  taskCompleted: db.toDolist[index][1],
+                  onChanged: (value) => checkBoxChanged(value, index),
+                  deleteFnction: (context) => deleteTask(index),
+                  editFnction: (context) => editTask(index),
+                );
+              },
+            ),
+            const Divider(height: 400)
+          ],
+        ));
   }
 }
