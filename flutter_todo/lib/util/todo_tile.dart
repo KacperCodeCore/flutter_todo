@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:hive/hive.dart';
 
 class ToDoTile extends StatelessWidget {
   final String taskName;
   final bool taskCompleted;
-  Function(bool?)? onChanged;
+  final Function(bool?)? onChanged;
 
-  Function(BuildContext)? deleteFnction;
-  Function(BuildContext)? editFnction;
+  final Function(BuildContext)? deleteFnction;
+  final Function(BuildContext)? editFnction;
 
-  ToDoTile({
+  const ToDoTile({
     super.key,
     required this.taskName,
     required this.taskCompleted,
@@ -28,7 +28,7 @@ class ToDoTile extends StatelessWidget {
         //after slide to right show...
         startActionPane: ActionPane(
           motion: const BehindMotion(),
-          dismissible: DismissiblePane(onDismissed: () => editFnction),
+          // dismissible: DismissiblePane(onDismissed: () => editFnction),
           children: [
             SlidableAction(
               onPressed: editFnction,
@@ -45,7 +45,7 @@ class ToDoTile extends StatelessWidget {
             SlidableAction(
                 onPressed: deleteFnction,
                 icon: Icons.delete,
-                backgroundColor: Color.fromARGB(255, 238, 128, 128),
+                backgroundColor: const Color.fromARGB(255, 238, 128, 128),
                 borderRadius: BorderRadius.circular(10)),
           ],
         ),

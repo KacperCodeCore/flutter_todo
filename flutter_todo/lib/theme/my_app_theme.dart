@@ -4,13 +4,13 @@ class MyAppTheme {
   static Color primaryColor = const Color.fromARGB(
       255, 228, 220, 0); // Przykładowy główny kolor niebieski
   static Color accentColor =
-      Color.fromARGB(255, 91, 182, 49); // Przykładowy kolor akcentu niebieski
+    const  Color.fromARGB(255, 91, 182, 49); // Przykładowy kolor akcentu niebieski
 
   static ThemeData lightTheme = ThemeData(
     primaryColor: primaryColor,
     scaffoldBackgroundColor: Colors.white, // Tło Scaffolda
     fontFamily: 'Roboto',
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
       headline1: TextStyle(
           fontSize: 24,
           fontWeight: FontWeight.bold,
